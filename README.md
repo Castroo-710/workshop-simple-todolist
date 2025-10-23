@@ -6,7 +6,7 @@ Er uppgift är att göra en enklare Todo-list applikation.
 
 Börja med en tom lista/array, ```todos: []```
 
-![Uppgiftsbeskrivning](https://github.com/chasacademy-sandra-larsson/workshop-simple-todolist/blob/main/simple_todolist.png)
+![Uppgiftsbeskrivning](https://github.com/chasacademy-sandra-larsson/workshop-simple-todolist/blob/main/screen.png)
 
 
 För att bryta ner uppgiften i mindre delar rekommenderar jag dessa delsteg. Känn er nöjda om ni klarar första! 🎉🎉🎉
