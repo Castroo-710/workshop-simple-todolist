@@ -1,0 +1,151 @@
+/* ============ Reset & tokens ============ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root{
+  --bg: #ffffff;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --ring: #3b82f6;
+  --shadow: 0 1px 2px rgba(0,0,0,.06), 0 4px 24px rgba(0,0,0,.06);
+  --radius: 14px;
+  --space-1: .5rem;
+  --space-2: .75rem;
+  --space-3: 1rem;
+  --space-4: 1.25rem;
+  --space-6: 1.75rem;
+  --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* ============ Layout ============ */
+html, body { height: 100%; }
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.45;
+  display: grid;
+  place-items: center;
+  padding: var(--space-6) var(--space-3);
+}
+
+.app{
+  width: min(680px, 92vw);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-6);
+}
+
+/* ============ Header ============ */
+h1{
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  font-size: clamp(1.25rem, 1rem + 1.2vw, 1.75rem);
+  margin-bottom: var(--space-4);
+}
+
+/* ============ Form ============ */
+.form{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+#input{
+  appearance: none;
+  width: 100%;
+  padding: var(--space-3) var(--space-3);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+#input::placeholder{ color: var(--muted); }
+#input:focus{ border-color: var(--ring); box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 20%, transparent); }
+
+#addBtn{
+  padding: 0 var(--space-4);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .06s ease, background-color .15s ease, border-color .15s ease;
+  height: 44px;
+}
+#addBtn:hover{ background: color-mix(in oklab, var(--text) 6%, transparent); }
+#addBtn:active{ transform: translateY(1px); }
+#addBtn:focus-visible{ outline: 2px solid var(--ring); outline-offset: 2px; }
+
+/* ============ List ============ */
+#todos{
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  margin-top: var(--space-2);
+}
+
+.todo-item{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: background-color .15s ease, border-color .15s ease, transform .06s ease;
+}
+.todo-item:hover{ background: color-mix(in oklab, var(--text) 5%, transparent); }
+.todo-item:active{ transform: translateY(1px); }
+
+/* Native checkbox, men snyggare färg */
+.todo-checkbox{
+  width: 20px; height: 20px;
+  accent-color: var(--ring);
+  cursor: pointer;
+}
+
+/* Text */
+.todo-text{
+  font-size: 1rem;
+  font-weight: 500;
+  word-break: break-word;
+}
+.todo-text.completed{
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+/* Remove-knapp minimalistisk */
+.remove-btn{
+  background: transparent;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease, transform .06s ease;
+}
+.remove-btn:hover{
+  background: color-mix(in oklab, var(--text) 7%, transparent);
+  border-color: color-mix(in oklab, var(--text) 18%, var(--border));
+}
+.remove-btn:active{ transform: translateY(1px); }
+.remove-btn:focus-visible{ outline: 2px solid var(--ring); outline-offset: 2px; }
+
+/* Små skärmar */
+@media (max-width: 420px){
+  .form{ grid-template-columns: 1fr; }
+  #addBtn{ height: 42px; }
+}
